@@ -12,36 +12,57 @@ public class Tekenen4_4 extends Applet {
     }
 
     public void paint(Graphics g) {
-        int[] x = {100, 200, 300};
-        int[] y = {300, 300-(int)(Math.sqrt(Math.pow(200, 2)-Math.pow(100, 2))), 300}; //(Stelling van pythagoras)Dit berekend y= 300=(onderkant)-Wortel van C^2(Lengte van rib)-A^2(Helft van de rib dus midden driehoek)
-        g.drawPolygon(x, y, x.length);
+       /*
+       Valerie: 40 kg
+       Jeroen: 100 kg
+       Hans: 80 kg
 
-        //House+Roof
-        x = new int[]{500, 500, 800, 800, 500, 650, 800};
-        y = new int[]{200, 500, 500, 200, 200, 100, 200};
-        g.drawPolygon(x, y, x.length);
+       een staafdiagram, waarbij elke kolom een eigen kleur heeft.
+       De namen van de kinderen staan onder het staafdiagram en de verdeling van de schaal staat naast de diagram met daarbij om de 20 de verdeling.
+       */
 
-        //Door
-        g.drawRect(615, 350, 75, 150);
+       //barChart
+       g.drawLine(100, 100, 100, 600);
+       g.drawLine(100, 600, 450, 600);
 
-        //Doorknob
-        g.drawRoundRect(675, 420, 10, 10, 180, 180);
+       //Gewichten
+       g.drawString("Gewicht (KG)", 25, 80);
+       g.drawString("100", 50, 100);
+       g.drawString("80", 50, 200);
+       g.drawString("60", 50, 300);
+       g.drawString("40", 50, 400);
+       g.drawString("20", 50, 500);
+       g.drawString("0", 50, 600);
 
-        //WindowLeft
-        g.drawRect(550, 240, 50, 50);
-        g.drawRect(545, 235, 60, 60);
+       //Inner Light Gray Lines
+       g.setColor(Color.decode("#BBBBBB"));
+       g.drawLine(100, 100, 450, 100);
+       g.drawLine(100, 200, 450, 200);
+       g.drawLine(100, 300, 450, 300);
+       g.drawLine(100, 400, 450, 400);
+       g.drawLine(100, 500, 450, 500);
 
-        //WindowRight
-        g.drawRect(700, 240, 50, 50);
-        g.drawRect(695, 235, 60, 60);
+       //Bars with color per person
+       //Valerie 40KG
+       g.setColor(Color.green);
+       g.fillRect(125, 400, 50, 200);
+       g.setColor(Color.BLACK);
+       g.drawString("Valerie", 130, 615);
 
-        g.fillRect(990, 100, 10, 600);
-        g.setColor(Color.red);
-        g.fillRect(1000, 100, 350, 100 );
-        g.setColor(Color.WHITE);
-        g.fillRect(1000, 200, 350, 100 );
-        g.setColor(Color.blue);
-        g.fillRect(1000, 300, 350, 100 );
+       //Jeroen 100KG
+       g.setColor(Color.red);
+       g.fillRect(225, 100, 50, 500);
+       g.setColor(Color.BLACK);
+       g.drawString("Jeroen", 230, 615);
 
+       //Hans 80KG
+       g.setColor(Color.ORANGE);
+       g.fillRect(325, 200, 50, 400);
+       g.setColor(Color.BLACK);
+       g.drawString("Hans", 335, 615);
+
+       //Personen text
+       g.setColor(Color.BLACK);
+       g.drawString("Personen", 452, 605);
     }
 }
