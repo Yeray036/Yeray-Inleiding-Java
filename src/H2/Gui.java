@@ -8,10 +8,14 @@ public class Gui extends Applet {
     //een (lege) methode die de Applet initialiseert
     public void init() {
 
+        setBackground(Color.magenta);
+
     }
     //een methode die de inhoud van het scherm tekent
     public void paint(Graphics g) {
+        g.setColor(Color.YELLOW);
         g.drawString("Welcome to Java!!", 50, 60 );
     }
+
 
 }
