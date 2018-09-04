@@ -14,7 +14,7 @@ public class H5_2 extends Applet {
         setSize(1600, 900);
         setBackground(Color.WHITE);
 
-        //Verander hier je gewichten X = 100 = 20kg
+        //Verander hier je gewichten Y = 100 = 20kg
         Valerie = 200;
         Jeroen = 500;
         Hans = 400;
