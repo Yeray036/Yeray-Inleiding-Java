@@ -6,22 +6,23 @@ import java.awt.*;
 public class H6_3 extends Applet {
 
     int a;
-    double b;
-    int uitkomst;
+    int b;
+    int c;
 
-    public void int(){
+
+    public void init(){
 
         setSize(1600, 900);
 
-        a = 847125;
-        b = 84168;
-        uitkomst = a+b;
+        a = 10;
+        b = 20;
+        c = (a + b) *-1;
 
     }
 
     public void paint(Graphics g){
 
-        g.drawString("Uitkomst " + uitkomst, 100, 100);
+        g.drawString(""+ c, 100, 100);
 
     }
 
