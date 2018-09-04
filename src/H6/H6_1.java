@@ -5,23 +5,31 @@ import java.awt.*;
 
 public class H6_1 extends Applet {
 
-    int Jan;
-    int Ali;
-    int Jeannette;
-    int Yeray;
-    int Verdiend;
+    /*
+    Personen:
+    Jan, Ali, Jeannette en Yeray
+     */
+
+    int personen;
+    int verdiend;
+    int uitkomst;
 
     public void init(){
-        Jan = a;
-        Ali = b;
-        Jeannette = c;
-        Yeray = d;
-        Verdiend = 113;
+
+        setSize(1600, 900);
+        setBackground(Color.WHITE);
+        personen = 4;
+        verdiend = 113;
+        uitkomst = verdiend/personen;
 
     }
 
     public void paint(Graphics g){
-        g.drawString("Jan", 100, 100);
+
+        g.drawString("Jan heeft vandaag  €" + uitkomst + " verdiend." , 100, 100);
+        g.drawString("Ali heeft vandaag  €" + uitkomst + " verdiend." , 100, 120);
+        g.drawString("Jeannette heeft vandaag  €" + uitkomst + " verdiend." , 100, 140);
+        g.drawString("Yeray heeft vandaag  €" + uitkomst + " verdiend." , 100, 160);
 
     }
 
