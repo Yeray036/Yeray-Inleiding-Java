@@ -12,6 +12,7 @@ public class H6_praktijk extends Applet {
     float cijfer3;
     float uitkomst;
 
+
     public void init(){
 
        cijfer1 = 5.9f;
