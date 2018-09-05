@@ -5,24 +5,24 @@ import java.awt.*;
 
 public class H6_3 extends Applet {
 
-    int a;
-    int b;
-    int c;
+    int positief;
+    int positief2;
+    int uitkomst;
 
 
     public void init(){
 
         setSize(1600, 900);
 
-        a = 10;
-        b = 20;
-        c = (a + b) *-1;
+        positief = 10;
+        positief2 = 20;
+        uitkomst = (positief + positief2) *-1;
 
     }
 
     public void paint(Graphics g){
 
-        g.drawString(""+ c, 100, 100);
+        g.drawString(""+ uitkomst, 100, 100);
 
     }
 
