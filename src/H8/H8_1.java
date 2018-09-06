@@ -19,11 +19,17 @@ public class H8_1 extends Applet {
 
         tekstvak = new TextField("",20);
         label = new Label("Plaats hier uw wachtwoord");
+
+        // OK-KNOP
         knop = new Button();
         knop.setLabel("Ok");
         knop.addActionListener(new TekstvakListener());
+
+        // REFRESH KNOP
         knop2 = new Button();
         knop2.setLabel("refresh");
+        knop2.addActionListener(new RefreshListener());
+
         add(label);
         add(tekstvak);
         add(knop);
@@ -32,7 +38,7 @@ public class H8_1 extends Applet {
     }
 
     public void paint(Graphics g){
-
+        g.drawString(tekst, 800, 40);
     }
 
     class TekstvakListener implements ActionListener {
@@ -40,6 +46,16 @@ public class H8_1 extends Applet {
         @Override
         public void actionPerformed(ActionEvent e) {
             tekst = tekstvak.getText();
+            repaint();
+        }
+    }
+
+    class RefreshListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            tekst = "";
+            tekstvak.setText("");
             repaint();
         }
     }
