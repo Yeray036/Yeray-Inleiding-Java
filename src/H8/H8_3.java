@@ -4,6 +4,9 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.Key;
 
 public class H8_3 extends Applet {
 
@@ -14,9 +17,11 @@ public class H8_3 extends Applet {
 
     public void init(){
 
+
         setSize(1600, 900);
 
         getalinvoer = new TextField("", 20);
+        getalinvoer.addActionListener(new getalinvoerListener());
         btwinvoer = new Label("Bedrag om BTW te berekenen");
         add(btwinvoer);
         add(getalinvoer);
@@ -28,8 +33,12 @@ public class H8_3 extends Applet {
     }
 
     public void paint(Graphics g){
-        g.drawString("" + getal, 50, 50);
-    }
+        g.drawString("" + getal, 870, 50);
+        g.drawString("€ ", 860, 50);
+}
+
+
+
 
     class getalinvoerListener implements ActionListener{
 
@@ -42,6 +51,5 @@ public class H8_3 extends Applet {
             repaint();
         }
     }
-
 
 }
