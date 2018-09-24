@@ -9,7 +9,8 @@ public class H10_2 extends Applet {
 
     public TextField getalinvoer;
     Button check;
-    float uitkomst = 2146740985;
+    float laagstegetal = 2146740985;
+    float hoogstegetal = -2146740985;
 
     public void init(){
         setSize(1600, 900);
@@ -26,10 +27,14 @@ public class H10_2 extends Applet {
     }
 
     public void paint(Graphics g){
-        if (uitkomst == 2146740985)
+        if (laagstegetal == 2146740985)
             return;
         else
-            g.drawString("" + uitkomst, 50, 50);
+            g.drawString("" + laagstegetal, 50, 50);
+        if (hoogstegetal == -2146740985)
+                return;
+        else
+            g.drawString("" + hoogstegetal, 100, 50);
     }
 
     class checkListener implements ActionListener {
@@ -37,8 +42,11 @@ public class H10_2 extends Applet {
         @Override
         public void actionPerformed(ActionEvent e) {
             float getalinvoer1 = Float.parseFloat(getalinvoer.getText());
-            if (uitkomst > getalinvoer1)
-                uitkomst = getalinvoer1;
+            if (laagstegetal > getalinvoer1)
+                laagstegetal = getalinvoer1;
+            float getalinvoer2 = Float.parseFloat(getalinvoer.getText());
+            if (hoogstegetal < getalinvoer2)
+                hoogstegetal = getalinvoer2;
             repaint();
         }
     }
