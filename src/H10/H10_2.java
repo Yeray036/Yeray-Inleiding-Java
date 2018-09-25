@@ -30,11 +30,11 @@ public class H10_2 extends Applet {
         if (laagstegetal == 2146740985)
             return;
         else
-            g.drawString("" + laagstegetal, 50, 50);
+            g.drawString("Laagste getal : " + laagstegetal, 50, 50);
         if (hoogstegetal == -2146740985)
                 return;
         else
-            g.drawString("" + hoogstegetal, 100, 50);
+            g.drawString("Hoogste getal : " + hoogstegetal, 50, 100);
     }
 
     class checkListener implements ActionListener {
