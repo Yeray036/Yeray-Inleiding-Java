@@ -21,7 +21,7 @@ public class H10_4 extends Applet {
         maandinvoer = new TextField("", 20);
         writeuitvoer = new Label("Type hier Uw maandnummer en jaar");
         maandinvoer.addActionListener( new maandinvoerListener());
-        maanduitvoer = "0";
+        maanduitvoer = "";
         add(writeuitvoer);
         add(maandinvoer);
         jaarinvoer = new TextField("", 20);
@@ -31,7 +31,13 @@ public class H10_4 extends Applet {
 
     public void paint(Graphics g){
         g.drawString("Maand : " + maanduitvoer, 50, 50);
-        g.drawString("Dagen : " + aantaldagen, 50, 80);
+
+        String s = "";
+        if(aantaldagen > 0){
+            s = s + aantaldagen;
+        }
+
+        g.drawString("Dagen : " + s, 50, 80);
     }
 
     class maandinvoerListener implements ActionListener{
