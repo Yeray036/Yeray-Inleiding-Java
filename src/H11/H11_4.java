@@ -9,9 +9,6 @@ public class H11_4 extends Applet {
 
     @Override
     public void init() {
-        tafelvandrie = 3;
-        for(int i = 1; i <= 10; i++){
-        }
     }
 
     @Override
