@@ -1,5 +1,6 @@
 package H12;
 
+import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +10,7 @@ public class H12_5 extends Applet {
 
     TextField tekstvak;
     int[] getallen = {100, 200, 300, 120};
-    boolean gevonden;
+    boolean gevonden, opgestart;
     int index;
     int zoeken;
     Button okknop;
@@ -31,10 +32,15 @@ public class H12_5 extends Applet {
         if(gevonden) {
             g.drawString("De waarde is gevonden : " + index, 20 , 50);
             gevonden = false;
+
         }
+
         else {
-            g.drawString("De waarde is niet gevonden.", 20, 50);
+            if (opgestart)
+            JOptionPane.showMessageDialog(null, "De waarde is niet gevonden", "No valid number", JOptionPane.ERROR_MESSAGE);
+
         }
+        opgestart = true;
     }
 
     class okknopListener implements ActionListener {
@@ -44,13 +50,15 @@ public class H12_5 extends Applet {
             zoeken = Integer.parseInt(tekstvak.getText());
             index = 0;
             for (int i = 0; i < getallen.length ; i++) {
+                System.out.println(i);
                 if (getallen[i] == zoeken) {
                     gevonden = true;
                     index = i;
+                    System.out.println(i);
+                    break;
                 }
             }
             repaint();
-
         }
     }
 }
