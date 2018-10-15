@@ -7,7 +7,7 @@ public class H13_praktijkopdracht extends Applet {
 
 
     public void init() {
-        setSize(1920, 1080);
+        setSize(1080, 720);
 
     }
 
