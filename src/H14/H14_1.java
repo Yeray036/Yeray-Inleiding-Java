@@ -21,6 +21,9 @@ public class H14_1 extends Applet {
     @Override
     public void init() {
 
+        pad = Thread.currentThread().getContextClassLoader().getResource("Sounds/");
+        sound = getAudioClip(pad, "CardSFX.mp3");
+
         kaartknop = new Button("Shuffle maar ! ");
         KaartKnopListener K = new KaartKnopListener();
         kaartknop.addActionListener(K);
@@ -53,8 +56,6 @@ public class H14_1 extends Applet {
                 int ran2 = new Random().nextInt(13);
                 String kaart2 = getalkaart[ran2];
 
-                pad = H14_1.class.getResource("/Sounds/");
-                sound = getAudioClip(pad, "Free Card Shuffle Sound Effect.mp3");
                 sound.play();
                 kaart3 = kaart + " " + kaart2;
                 repaint();
