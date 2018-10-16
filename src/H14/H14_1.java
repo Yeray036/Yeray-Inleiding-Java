@@ -21,8 +21,8 @@ public class H14_1 extends Applet {
     @Override
     public void init() {
 
-        pad = Thread.currentThread().getContextClassLoader().getResource("Sounds/");
-        sound = getAudioClip(pad, "CardSFX.mp3");
+        pad = H14_1.class.getResource("/H14/Sounds");
+        sound = getAudioClip(pad, "CardSFX.wav");
 
         kaartknop = new Button("Shuffle maar ! ");
         KaartKnopListener K = new KaartKnopListener();
