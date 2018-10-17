@@ -20,6 +20,7 @@ public class H12_4 extends Applet {
         okknopListener O = new okknopListener();
         okknop.addActionListener( O );
         tekstvak = new TextField("", 8);
+        tekstvak.addActionListener( O );
         add(tekstvak);
         zoeken = 0;
         gevonden = false;

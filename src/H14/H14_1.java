@@ -21,7 +21,7 @@ public class H14_1 extends Applet {
     @Override
     public void init() {
 
-        pad = H14_1.class.getResource("/H14/Sounds");
+        pad = H14_1.class.getResource("/H14/Sounds/");
         sound = getAudioClip(pad, "CardSFX.wav");
 
         kaartknop = new Button("Shuffle maar ! ");
@@ -51,12 +51,18 @@ public class H14_1 extends Applet {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                int ran1 = new Random().nextInt(4);
+                Random random = new Random();
+                int ran1 = random.nextInt(4);
                 String kaart = kleuren[ran1];
-                int ran2 = new Random().nextInt(13);
+                int ran2 = random.nextInt(13);
                 String kaart2 = getalkaart[ran2];
 
                 sound.play();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
                 kaart3 = kaart + " " + kaart2;
                 repaint();
             }
