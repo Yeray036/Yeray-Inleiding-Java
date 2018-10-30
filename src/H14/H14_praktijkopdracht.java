@@ -14,6 +14,8 @@ public class H14_praktijkopdracht extends Applet {
     int numberOfTokens;
     String stringChips = "";
 
+    public boolean checkUserTurn = true;
+
     private Image token;
     private URL pad;
     private Image youLost;
@@ -56,8 +58,8 @@ public class H14_praktijkopdracht extends Applet {
     }
 
     class numberInjectionListener implements ActionListener {
-        boolean checkUserTurn = true;
         int input;
+
         @Override
         public void actionPerformed(ActionEvent e) {
             if (checkUserTurn == false)
@@ -72,29 +74,28 @@ public class H14_praktijkopdracht extends Applet {
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
-                            for (int i : specialnumbers)
-                                if (numberOfTokens - 1 == i)
-                                    input = 1;
-                                else if (numberOfTokens - 2 == i)
-                                    input = 2;
-                                else if (numberOfTokens - 3 == i)
-                                    input = 3;
+                            if (numberOfTokens > 1)
+                                for (int i : specialnumbers)
+                                    if (numberOfTokens - 1 == i)
+                                        input = 1;
+                                    else if (numberOfTokens - 2 == i)
+                                        input = 2;
+                                    else if (numberOfTokens - 3 == i)
+                                        input = 3;
                             Random random = new Random();
                             if (input == 0)
                                 if (numberOfTokens >= 4)
-                                    input = random.nextInt(3)+1;
+                                    input = random.nextInt(3) + 1;
                                 else
                                     input = 1;
 
                             numberOfTokens -= input;
-
                             repaint();
                             checkUserTurn = true;
                         }
                     },
                     1000 // Wait 1 second before the PC makes a turn
             );
-
         }
     }
 
@@ -112,11 +113,12 @@ public class H14_praktijkopdracht extends Applet {
         }
         youLost = getImage(pad, "gameover.png");
         youWon = getImage(pad, "winner.png");
-        if (numberOfTokens == 0) {
+        if (numberOfTokens == 0 && checkUserTurn == false) {
+            numberOfTokens = 0;
             g.drawImage(youLost, 50, 50, this);
-        }
-        else if (numberOfTokens == 1) {
-            g.drawImage(youWon, 80, 100, this);
+        } else if (numberOfTokens == 1 && checkUserTurn == false) {
+            numberOfTokens = 1;
+            g.drawImage(youWon, 5, 60, this);
         }
     }
 }
