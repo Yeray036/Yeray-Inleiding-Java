@@ -12,9 +12,12 @@ public class H14_praktijkopdracht extends Applet {
     TextField numberinjection;
     Label label;
     int numberOfTokens;
+    String stringChips = "";
 
     private Image token;
     private URL pad;
+    private Image youLost;
+    private Image youWon;
 
     int[] specialnumbers = {1, 5, 9, 13, 17, 21};
 
@@ -44,11 +47,12 @@ public class H14_praktijkopdracht extends Applet {
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.RED);
-        g.drawString("Number of poker chips left : " + numberOfTokens, 50, 50);
-        tokens(g);
-        if (numberOfTokens <= 1) {
-
+        stringChips = Integer.toString(numberOfTokens);
+        if (numberOfTokens <= 0) {
+            stringChips = "0";
         }
+        g.drawString("Number of poker chips left : " + stringChips, 50, 50);
+        tokens(g);
     }
 
     class numberInjectionListener implements ActionListener {
@@ -105,6 +109,14 @@ public class H14_praktijkopdracht extends Applet {
             token = getImage(pad, "tokenschips.png");
             g.drawImage(token, x, y, 100, 100, this);
             x += 110;
+        }
+        youLost = getImage(pad, "gameover.png");
+        youWon = getImage(pad, "winner.png");
+        if (numberOfTokens == 0) {
+            g.drawImage(youLost, 50, 50, this);
+        }
+        else if (numberOfTokens == 1) {
+            g.drawImage(youWon, 80, 100, this);
         }
     }
 }
