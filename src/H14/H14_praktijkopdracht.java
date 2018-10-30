@@ -30,6 +30,7 @@ public class H14_praktijkopdracht extends Applet {
 
         numberOfTokens = 23;
 
+        //For the people that read this, here is where you can change your path.
         pad = H14_praktijkopdracht.class.getResource("/H14/Images/");
 
         label = new Label("Voer één, twee en of drie in");
